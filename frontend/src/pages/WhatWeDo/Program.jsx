@@ -1,36 +1,31 @@
-// File: src/pages/WhatWeDo/Program.jsx
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Program() {
-  // Data program untuk ditampilkan
   const programs = [
     {
       title: "Leadership Academy",
       description: "Program pelatihan kepemimpinan intensif selama 3 bulan untuk pemuda usia 18-25 tahun.",
       schedule: "Maret - Mei & Agustus - Oktober",
       participants: "30 orang per batch",
-      image: "leadership.jpg"
     },
     {
       title: "Digital Literacy",
       description: "Pelatihan keterampilan digital dasar hingga lanjutan untuk pemuda dari daerah terpencil.",
       schedule: "Setiap bulan, kelas mingguan",
       participants: "20 orang per kelas",
-      image: "digital.jpg"
     },
     {
       title: "Environmental Awareness",
       description: "Program edukasi dan aksi nyata untuk penyelamatan lingkungan, termasuk penanaman pohon dan pembersihan pantai.",
       schedule: "Februari, Juni, Oktober",
       participants: "Tidak terbatas",
-      image: "environment.jpg"
     },
     {
       title: "Career Preparation",
       description: "Workshop persiapan karir termasuk pembuatan CV, teknik wawancara, dan pengembangan soft skills.",
       schedule: "April & September",
       participants: "50 orang per workshop",
-      image: "career.jpg"
     }
   ];
 
@@ -46,12 +41,6 @@ function Program() {
         {programs.map((program, index) => (
           <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden">
             <div className="md:flex">
-              <div className="md:w-1/3 bg-gray-200 md:min-h-full">
-                {/* Placeholder untuk gambar program */}
-                <div className="w-full h-48 md:h-full flex items-center justify-center text-gray-500">
-                  [Gambar {program.title}]
-                </div>
-              </div>
               <div className="md:w-2/3 p-6">
                 <h2 className="text-2xl font-semibold mb-3">{program.title}</h2>
                 <p className="mb-4">{program.description}</p>
@@ -66,9 +55,13 @@ function Program() {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <button className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors">
+                  {/* Link for navigating to Program Details Page */}
+                  <Link 
+                    to={`/program/${program.title}`} 
+                    className="bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition-colors"
+                  >
                     Detail Program
-                  </button>
+                  </Link>
                   <button className="ml-4 border border-blue-600 text-blue-600 py-2 px-4 rounded-md hover:bg-blue-50 transition-colors">
                     Daftar Sekarang
                   </button>
